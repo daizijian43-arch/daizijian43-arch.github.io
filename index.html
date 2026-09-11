@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo 酒店 · 入住体验调查</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #F2EBE0;
+      --surface: #FCFAF6;
+      --ink: #16261E;
+      --green: #1F3A30;
+      --green-hi: #2A4C3F;
+      --brass: #A9884B;
+      --brass-soft: #CDB88A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: "Noto Sans SC", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 8%, #FBF7F0 0%, transparent 55%),
+        radial-gradient(circle at 85% 92%, #E9DFCE 0%, transparent 50%),
+        var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      background: var(--surface);
+      padding: clamp(36px, 7vw, 68px) clamp(24px, 6vw, 60px);
+      text-align: center;
+      box-shadow: 0 26px 60px -32px rgba(22, 38, 30, 0.4);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--brass-soft);
+      pointer-events: none;
+    }
+
+    .card > * {
+      opacity: 0;
+      animation: rise 0.8s cubic-bezier(0.22, 0.8, 0.24, 1) forwards;
+    }
+    .card > *:nth-child(1) { animation-delay: 0.05s; }
+    .card > *:nth-child(2) { animation-delay: 0.12s; }
+    .card > *:nth-child(3) { animation-delay: 0.19s; }
+    .card > *:nth-child(4) { animation-delay: 0.26s; }
+    .card > *:nth-child(5) { animation-delay: 0.33s; }
+    .card > *:nth-child(6) { animation-delay: 0.40s; }
+    .card > *:nth-child(7) { animation-delay: 0.47s; }
+    .card > *:nth-child(8) { animation-delay: 0.54s; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 14px;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px auto 30px;
+      max-width: 220px;
+      color: var(--brass);
+      font-size: 10px;
+    }
+    .rule span {
+      flex: 1;
+      height: 1px;
+      background: var(--brass-soft);
+    }
+
+    h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 600;
+      font-size: clamp(26px, 6vw, 34px);
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+    }
+
+    .lead {
+      margin-top: 18px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 2;
+      color: #4A5A51;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 28px 0 30px;
+      list-style: none;
+    }
+    .meta li {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--brass);
+      border: 1px solid var(--brass-soft);
+      padding: 5px 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 340px;
+      padding: 17px 32px;
+      background: var(--green);
+      color: #F4EFE6;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover {
+      background: var(--green-hi);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px -16px rgba(31, 58, 48, 0.7);
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 3px;
+    }
+
+    .note {
+      margin-top: 22px;
+      font-size: 13px;
+      font-weight: 300;
+      color: #6A776E;
+      line-height: 1.9;
+    }
+
+    .foot {
+      margin-top: 34px;
+      padding-top: 20px;
+      border-top: 1px solid #E4DACA;
+      font-family: "Noto Serif SC", serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: #9A8C74;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card > * { animation: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="brand">Hugo Hotel</p>
+
+    <div class="rule"><span></span>◆<span></span></div>
+
+    <h1>感谢您的入住</h1>
+
+    <p class="lead">
+      为了在下一次相见时，能给您更好的体验，<br />
+      我们想听听您这次的感受。
+    </p>
+
+    <ul class="meta">
+      <li>约 2 分钟</li>
+      <li>11 个题目</li>
+      <li>意见直达管理层</li>
+    </ul>
+
+    <a class="btn" href="https://forms.gle/AbCdEf123" target="_blank" rel="noopener">
+      开始填写问卷
+    </a>
+
+    <p class="note">您的每一条意见，我们都会认真阅读并跟进。</p>
+
+    <p class="foot">Hugo 酒店 · 前台敬上</p>
+  </main>
+</body>
+</html>
